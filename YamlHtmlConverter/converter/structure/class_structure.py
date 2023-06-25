@@ -28,6 +28,9 @@ class Structure:
     def __init__(self, converter):
         from ..class_converter import Converter
 
+        # headers for table of contents
+        self.headers: list[str] = []
+
         # store converter reference
         self.converter: Converter = converter
 
@@ -41,7 +44,7 @@ class Structure:
         self.collect_entries_from_file()
 
         # always create lowest-level section
-        self.root_section: Section = Section()
+        self.root_section: Section = Section(self)
 
         # start constructing the html file
         self.create_structure_from_file(self.root_section)
@@ -80,7 +83,7 @@ class Structure:
                 if entry_next.level > entry_current.level:
 
                     # create new section
-                    section_new = Section()
+                    section_new = Section(self)
 
                     # transfer attributes
                     section_new.set_level(entry_current.level)
@@ -100,7 +103,7 @@ class Structure:
                 else:
 
                     # create new entry
-                    entry_new = Entry()
+                    entry_new = Entry(self)
 
                     # transfer attributes
                     entry_new.set_level(entry_current.level)
@@ -140,7 +143,7 @@ class Structure:
             return None
 
         # entry creation
-        entry = Entry()
+        entry = Entry(self)
 
         # set level
         entry.set_level(indent)
@@ -185,3 +188,12 @@ class Structure:
 
     def get_data(self) -> Section:
         return self.root_section
+
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    #   Method : Add Header
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+    def add_header(self, header) -> str:
+        self.headers.append(header)
+
+        return header

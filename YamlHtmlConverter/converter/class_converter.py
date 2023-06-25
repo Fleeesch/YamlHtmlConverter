@@ -89,8 +89,16 @@ class Converter():
                         <body>
                         """
 
+        toc = f"""
+                <div id="table-of-contents">
+                <h2>Table of Contents</h2>
+                <ul id="toc-list"></ul>
+                </div>
+                """
+
         # header end
         html_end = f"""
+                        <script type="text/javascript" src="toc.js" ></script>
                         </body>
                         </html>
                         """
@@ -98,6 +106,7 @@ class Converter():
         # concatenate html output string
         html_print = ""
         html_print += textwrap.dedent(html_header).strip() + "\n"
+        html_print += textwrap.dedent(toc).strip() + "\n"
         html_print += html_structure + "\n"
         html_print += textwrap.dedent(html_end).strip() + "\n"
 

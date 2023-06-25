@@ -7,7 +7,6 @@
 # -------------------------------------------------------------------------------
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Dependencies
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -25,8 +24,11 @@ class Entry:
     #   Constructor
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-    def __init__(self):
+    def __init__(self, structure):
         from YamlHtmlConverter.converter.structure.class_entry_section import Section
+
+        # structure reference
+        self.structure = structure
 
         # indent level
         self.level: int = 0
@@ -155,9 +157,24 @@ class Entry:
 
         line = ""
 
-        line += f'<div class={lookup.html_class_line_wrapper}>'
+        tag_id = ''
+        tag_class = ''
 
+        # additional tags for root headers
+        if self.is_section and self.level <= 0:
+            header_name = f'header-{self.line_no_comment.replace(":", "").strip()}'
+
+            self.structure.add_header(header_name
+                                      )
+            tag_id = f'id="{header_name}"'
+            tag_class = 'toc-header'
+
+        # line wrapper
+        line += f'<div onclick="copyLine(event)" class="{lookup.html_class_line_wrapper} {tag_class}" {tag_id}>'
+
+        # entry is a section header
         if self.is_section:
+
             line += f'<span class="' \
                     f'{lookup.html_class_header} ' \
                     f'{lookup.html_class_level}{self.level + 1}' \
@@ -165,6 +182,7 @@ class Entry:
                     f'{self.line_no_comment}' \
                     f'</span>'
 
+        # entry is a conventional line
         else:
             line += f'<span class="' \
                     f'{lookup.html_class_attribute} ' \
@@ -173,6 +191,7 @@ class Entry:
                     f'{self.line_no_comment}' \
                     f'</span>'
 
+        # entry has an inline comment
         if self.has_inline_comment:
             line += " "
 

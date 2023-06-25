@@ -26,8 +26,8 @@ class Section(Entry):
     #   Constructor
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, structure):
+        super().__init__(structure)
 
         # section indicator
         self.is_section = True

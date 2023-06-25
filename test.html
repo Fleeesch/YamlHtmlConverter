@@ -4,40 +4,47 @@
   <title>
    Test
   </title>
-  <link href="styles.css?v=20230623145817934004" rel="stylesheet"/>
+  <link href="styles.css?v=20230625183145789714" rel="stylesheet"/>
  </head>
  <body>
+  <div id="table-of-contents">
+   <h2>
+    Table of Contents
+   </h2>
+   <ul id="toc-list">
+   </ul>
+  </div>
   <ul class="level1">
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-templates" onclick="copyLine(event)">
      <span class="section-header level1">
       templates:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         placeholder:
        </span>
       </div>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         snippet:
        </span>
       </div>
       <ul class="level2">
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           Blank:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             This is a snippet: $1
            </span>
@@ -48,14 +55,14 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         pattern:
        </span>
       </div>
       <ul class="level2">
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           level:
          </span>
@@ -65,14 +72,14 @@
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             pattern a: [ "1", "2" ]
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             pattern b: [ "01", "02" ]
            </span>
@@ -81,35 +88,35 @@
         </ul>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           tonal:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             classic-h-sharp: [ c, c#, d, d#, e, f, f#, g, g#, a, a#, h ]
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             classic-b-sharp: [ c, c#, d, d#, e, f, f#, g, g#, a, a#, b ]
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             classic-h-b: [ c, db, d, eb, e, f, gb, g, ab, a, bb, h ]
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             classic-b-b: [ c, db, d, eb, e, f, gb, g, ab, a, hb, b ]
            </span>
@@ -122,14 +129,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-sfz" onclick="copyLine(event)">
      <span class="section-header level1">
       sfz:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         name: SFZ Instrument
        </span>
@@ -139,21 +146,21 @@
       </div>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         symbols:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           tab: ". . "
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           line placeholder: "$l"
          </span>
@@ -163,7 +170,7 @@
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           comment line placeholder: "$c"
          </span>
@@ -173,14 +180,14 @@
         </div>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           comment:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             line: "- - - - - - - - - - - - - - - - - - - - -"
            </span>
@@ -190,7 +197,7 @@
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             subline: "* * * * * * * * * * * * * * * * *"
            </span>
@@ -200,14 +207,14 @@
           </div>
          </li>
          <li class="section level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="section-header level4">
             large header:
            </span>
           </div>
           <ul class="level4">
            <li class="entry level5">
-            <div class="line-wrapper">
+            <div class="line-wrapper" onclick="copyLine(event)">
              <span class="attribute level5">
               - "= = = = = = = = = = = = = = = = = = = = = = = = = ="
              </span>
@@ -217,7 +224,7 @@
             </div>
            </li>
            <li class="entry level5">
-            <div class="line-wrapper">
+            <div class="line-wrapper" onclick="copyLine(event)">
              <span class="attribute level5">
               - "- - - - - - - - - - - - - - - - - - - - - - - - - -"
              </span>
@@ -235,14 +242,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-instruments" onclick="copyLine(event)">
      <span class="section-header level1">
       instruments:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         copy:
        </span>
@@ -252,7 +259,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         hide: false
        </span>
@@ -262,70 +269,70 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         control:
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         envelopes:
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         curves:
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         variables:
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         release envelopes:
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         filters:
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         equalizers:
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         lfo:
        </span>
       </div>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         keyswitches:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           default:
          </span>
@@ -337,14 +344,14 @@
       </ul>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         velocity tracking: 0
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         choke:
        </span>
@@ -353,14 +360,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-include" onclick="copyLine(event)">
      <span class="section-header level1">
       include:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         pre:
        </span>
@@ -370,7 +377,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         post:
        </span>
@@ -382,14 +389,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-insert" onclick="copyLine(event)">
      <span class="section-header level1">
       insert:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         pre:
        </span>
@@ -399,7 +406,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         post:
        </span>
@@ -411,28 +418,28 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-control" onclick="copyLine(event)">
      <span class="section-header level1">
       control:
      </span>
     </div>
     <ul class="level1">
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Bend:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 20
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           default: 0
          </span>
@@ -441,28 +448,28 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Velocity:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 131
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           default: 0
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: true
          </span>
@@ -471,28 +478,28 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Release Velocity:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 132
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           default: 0
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: true
          </span>
@@ -501,21 +508,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Channel AT:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 129
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           default: 0
          </span>
@@ -524,14 +531,14 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Volume:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 7
          </span>
@@ -540,21 +547,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Pan:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 10
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           default: 64
          </span>
@@ -563,21 +570,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Pitchbend:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 128
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           default: 0
          </span>
@@ -586,28 +593,28 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Poly AT:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 130
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           default: 0
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -616,21 +623,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Note:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 133
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: true
          </span>
@@ -639,21 +646,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Gate:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 134
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: true
          </span>
@@ -662,21 +669,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Random Unipolar:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 135
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: true
          </span>
@@ -685,21 +692,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Random Bipolar:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 136
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: true
          </span>
@@ -708,21 +715,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Alternate:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 137
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: true
          </span>
@@ -731,21 +738,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Keydelta:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 140
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -754,21 +761,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Keydelta ABS:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 141
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -777,21 +784,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Host BPM:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 142
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -800,21 +807,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Host Transport:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 143
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -823,21 +830,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Host Samplerate:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 144
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -846,21 +853,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Time Engine:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 145
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -869,21 +876,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Timesig A:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 146
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -892,21 +899,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Timesig B:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 147
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -915,21 +922,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         QN Position ABS:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 148
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -938,21 +945,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         QN Position:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 149
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -961,21 +968,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Time Instrument:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 150
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -984,21 +991,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Time LastKeyOn:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 151
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -1007,21 +1014,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Time LastKeyOff:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 152
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -1030,21 +1037,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Keycount:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 153
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -1053,21 +1060,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Voicecount:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 154
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -1076,21 +1083,21 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Offset:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc: 155
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           hide: True
          </span>
@@ -1101,14 +1108,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-control element" onclick="copyLine(event)">
      <span class="section-header level1">
       control element:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         cc: 0
        </span>
@@ -1118,7 +1125,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         default: null
        </span>
@@ -1128,7 +1135,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         hide: false
        </span>
@@ -1138,7 +1145,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         show cc: true
        </span>
@@ -1150,14 +1157,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-equalizers" onclick="copyLine(event)">
      <span class="section-header level1">
       equalizers:
      </span>
     </div>
     <ul class="level1">
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         3Band:
        </span>
@@ -1167,28 +1174,28 @@
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           dynamic: true
          </span>
         </div>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           bands:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             - [ 0, 1, 2 ]
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             - [ 200, 20, 2 ]
            </span>
@@ -1201,14 +1208,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-equalizer element" onclick="copyLine(event)">
      <span class="section-header level1">
       equalizer element:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         dynamic: false
        </span>
@@ -1218,7 +1225,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         bands:
        </span>
@@ -1230,35 +1237,35 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-part equalizer element" onclick="copyLine(event)">
      <span class="section-header level1">
       part equalizer element:
      </span>
     </div>
     <ul class="level1">
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         modulation:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           band 1:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           band 2:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           band 3:
          </span>
@@ -1269,56 +1276,56 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-equalizer band modulation" onclick="copyLine(event)">
      <span class="section-header level1">
       equalizer band modulation:
      </span>
     </div>
     <ul class="level1">
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         frequency:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           type:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           compensation:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           lfo:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           variables:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           envelopes:
          </span>
@@ -1327,49 +1334,49 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         bandwidth:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           type:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           compensation:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           lfo:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           variables:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           envelopes:
          </span>
@@ -1378,49 +1385,49 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         gain:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           type:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           compensation:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           lfo:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           variables:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           envelopes:
          </span>
@@ -1431,14 +1438,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-filters" onclick="copyLine(event)">
      <span class="section-header level1">
       filters:
      </span>
     </div>
     <ul class="level1">
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Lowpass:
        </span>
@@ -1448,21 +1455,21 @@
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           type: lowpass
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           poles: 2
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           frequency: 100
          </span>
@@ -1473,14 +1480,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-filter element" onclick="copyLine(event)">
      <span class="section-header level1">
       filter element:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         type: lowpass
        </span>
@@ -1490,7 +1497,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         poles: 1
        </span>
@@ -1500,7 +1507,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         frequency: 9600
        </span>
@@ -1510,7 +1517,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         resonance: 0
        </span>
@@ -1520,7 +1527,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         gain: 0
        </span>
@@ -1530,7 +1537,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         key tracking: 0
        </span>
@@ -1540,14 +1547,14 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         key tracking center: 64
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         velocity tracking: 0
        </span>
@@ -1556,63 +1563,63 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-part filter element" onclick="copyLine(event)">
      <span class="section-header level1">
       part filter element:
      </span>
     </div>
     <ul class="level1">
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         modulation:
        </span>
       </div>
       <ul class="level2">
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           frequency:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             compensation:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             lfo:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             variables:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             envelopes:
            </span>
@@ -1621,49 +1628,49 @@
         </ul>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           resonance:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             compensation:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             lfo:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             variables:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             envelopes:
            </span>
@@ -1672,49 +1679,49 @@
         </ul>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           gain:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             compensation:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             lfo:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             variables:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             envelopes:
            </span>
@@ -1727,14 +1734,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-release envelopes" onclick="copyLine(event)">
      <span class="section-header level1">
       release envelopes:
      </span>
     </div>
     <ul class="level1">
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         Normal:
        </span>
@@ -1744,7 +1751,7 @@
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           decay:
          </span>
@@ -1754,7 +1761,7 @@
         </div>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           points:
          </span>
@@ -1764,7 +1771,7 @@
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             - [ 0, 1 ]
            </span>
@@ -1777,14 +1784,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-release envelope element" onclick="copyLine(event)">
      <span class="section-header level1">
       release envelope element:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         points:
        </span>
@@ -1793,14 +1800,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-modulation element" onclick="copyLine(event)">
      <span class="section-header level1">
       modulation element:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         depth: 0
        </span>
@@ -1810,7 +1817,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         curve:
        </span>
@@ -1820,7 +1827,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         compensate: 0
        </span>
@@ -1830,21 +1837,21 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         smooth: 25
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         step: 0
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         modulation:
        </span>
@@ -1856,21 +1863,21 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-envelope element" onclick="copyLine(event)">
      <span class="section-header level1">
       envelope element:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         depth: 0
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         modulation:
        </span>
@@ -1879,14 +1886,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-modulation envelope element" onclick="copyLine(event)">
      <span class="section-header level1">
       modulation envelope element:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         points:
        </span>
@@ -1895,42 +1902,42 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-modulation adsr element" onclick="copyLine(event)">
      <span class="section-header level1">
       modulation adsr element:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         depth: 0
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         curve:
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         compensate: 0
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         smooth: 25
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         step: 0
        </span>
@@ -1939,14 +1946,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-modulation lfo element" onclick="copyLine(event)">
      <span class="section-header level1">
       modulation lfo element:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         depth:
        </span>
@@ -1956,7 +1963,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         compensate: 0
        </span>
@@ -1966,7 +1973,7 @@
       </div>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         modulation:
        </span>
@@ -1976,7 +1983,7 @@
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc:
          </span>
@@ -1987,14 +1994,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-pitchbend" onclick="copyLine(event)">
      <span class="section-header level1">
       pitchbend:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         range: 100
        </span>
@@ -2004,7 +2011,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         step: 0
        </span>
@@ -2014,7 +2021,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         smooth: 25
        </span>
@@ -2026,21 +2033,21 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-variable element" onclick="copyLine(event)">
      <span class="section-header level1">
       variable element:
      </span>
     </div>
     <ul class="level1">
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         modulation:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           type:
          </span>
@@ -2051,14 +2058,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-amp eg" onclick="copyLine(event)">
      <span class="section-header level1">
       amp eg:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         dynamic: false
        </span>
@@ -2068,14 +2075,14 @@
       </div>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         delay:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           level: 0
          </span>
@@ -2085,7 +2092,7 @@
         </div>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           modulation:
          </span>
@@ -2095,14 +2102,14 @@
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
@@ -2113,42 +2120,42 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         attack:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           level: 0.005
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           shape: 0
          </span>
         </div>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           modulation:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
@@ -2159,35 +2166,35 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         hold:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           level: 0
          </span>
         </div>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           modulation:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
@@ -2198,42 +2205,42 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         decay:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           level: 0.01
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           shape: 0
          </span>
         </div>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           modulation:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
@@ -2244,35 +2251,35 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         sustain:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           level: 1
          </span>
         </div>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           modulation:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
@@ -2283,42 +2290,42 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         release:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           level: 0.01
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           shape: 0
          </span>
         </div>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           modulation:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
@@ -2331,77 +2338,77 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-lfo" onclick="copyLine(event)">
      <span class="section-header level1">
       lfo:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         waveform: 0
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         rate: 1
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         phase: 0
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         delay: 0
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         fade: 0
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         offset: 0
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         smooth: 25
        </span>
       </div>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         sub:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           mix: 1
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           list:
          </span>
@@ -2410,42 +2417,42 @@
       </ul>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         modulation:
        </span>
       </div>
       <ul class="level2">
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           depth add:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             compensation:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             lfo:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             envelopes:
            </span>
@@ -2454,35 +2461,35 @@
         </ul>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           depth:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             compensation:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             lfo:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             envelopes:
            </span>
@@ -2491,35 +2498,35 @@
         </ul>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           waveform:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             compensation:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             envelopes:
            </span>
@@ -2528,42 +2535,42 @@
         </ul>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           rate:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             compensation:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             lfo:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             envelopes:
            </span>
@@ -2572,35 +2579,35 @@
         </ul>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           phase:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             compensation:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             envelopes:
            </span>
@@ -2609,35 +2616,35 @@
         </ul>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           delay:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             compensation:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             envelopes:
            </span>
@@ -2646,35 +2653,35 @@
         </ul>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           fade:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             compensation:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             envelopes:
            </span>
@@ -2683,35 +2690,35 @@
         </ul>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           smooth:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             compensation:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             envelopes:
            </span>
@@ -2720,35 +2727,35 @@
         </ul>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           offset:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             compensation:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             cc:
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             envelopes:
            </span>
@@ -2761,14 +2768,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-envelopes" onclick="copyLine(event)">
      <span class="section-header level1">
       envelopes:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         sustain:
        </span>
@@ -2778,28 +2785,28 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         dynamic: false
        </span>
       </div>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         modulation:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           type:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc:
          </span>
@@ -2808,7 +2815,7 @@
       </ul>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         points:
        </span>
@@ -2820,14 +2827,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-curve element" onclick="copyLine(event)">
      <span class="section-header level1">
       curve element:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         resolution: 1
        </span>
@@ -2837,7 +2844,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         points:
        </span>
@@ -2847,7 +2854,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         steps: false
        </span>
@@ -2859,14 +2866,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-choke" onclick="copyLine(event)">
      <span class="section-header level1">
       choke:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         polymono: false
        </span>
@@ -2876,7 +2883,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         group:
        </span>
@@ -2886,7 +2893,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         off by:
        </span>
@@ -2896,7 +2903,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         hard off: false
        </span>
@@ -2906,7 +2913,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         time:
        </span>
@@ -2916,7 +2923,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         shape:
        </span>
@@ -2928,14 +2935,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-attributes" onclick="copyLine(event)">
      <span class="section-header level1">
       attributes:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         level: 0
        </span>
@@ -2945,49 +2952,49 @@
       </div>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         modulation:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           compensation:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           type:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           lfo:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           cc:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           envelopes:
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           variables:
          </span>
@@ -2998,14 +3005,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-range element" onclick="copyLine(event)">
      <span class="section-header level1">
       range element:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         low: 0
        </span>
@@ -3015,7 +3022,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         high: 127
        </span>
@@ -3027,14 +3034,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-keyswitch element" onclick="copyLine(event)">
      <span class="section-header level1">
       keyswitch element:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         label: Keyswitch
        </span>
@@ -3044,7 +3051,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         note:
        </span>
@@ -3056,14 +3063,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-parts" onclick="copyLine(event)">
      <span class="section-header level1">
       parts:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         hide: false
        </span>
@@ -3073,7 +3080,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         zones:
        </span>
@@ -3083,7 +3090,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         splits:
        </span>
@@ -3093,7 +3100,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         samples:
        </span>
@@ -3103,7 +3110,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         sounds:
        </span>
@@ -3113,7 +3120,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         choke:
        </span>
@@ -3123,7 +3130,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         copy:
        </span>
@@ -3133,7 +3140,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         snippet:
        </span>
@@ -3143,7 +3150,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         include:
        </span>
@@ -3153,7 +3160,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         insert:
        </span>
@@ -3163,7 +3170,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         trigger: Normal
        </span>
@@ -3173,7 +3180,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         playmode: Normal
        </span>
@@ -3183,7 +3190,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         reverse: False
        </span>
@@ -3193,14 +3200,14 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         release envelope:
        </span>
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         note shift: 0
        </span>
@@ -3210,7 +3217,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         keyswitch:
        </span>
@@ -3220,7 +3227,7 @@
       </div>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         keyrange:
        </span>
@@ -3230,21 +3237,21 @@
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           low: 0
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           high: 127
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           force note:
          </span>
@@ -3254,7 +3261,7 @@
         </div>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           extend:
          </span>
@@ -3264,14 +3271,14 @@
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             low: 0
            </span>
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             high: 0
            </span>
@@ -3282,7 +3289,7 @@
       </ul>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         cc range:
        </span>
@@ -3292,7 +3299,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         cc trigger:
        </span>
@@ -3302,7 +3309,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         program range:
        </span>
@@ -3312,7 +3319,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         roundrobin: sequence
        </span>
@@ -3322,7 +3329,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         amp eg:
        </span>
@@ -3332,7 +3339,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         filters:
        </span>
@@ -3342,7 +3349,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         equalizer:
        </span>
@@ -3352,7 +3359,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         pitchbend:
        </span>
@@ -3364,21 +3371,21 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-zones" onclick="copyLine(event)">
      <span class="section-header level1">
       zones:
      </span>
     </div>
     <ul class="level1">
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         crossfade:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           depth: 0.0
          </span>
@@ -3388,7 +3395,7 @@
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           type: power
          </span>
@@ -3402,14 +3409,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-splits" onclick="copyLine(event)">
      <span class="section-header level1">
       splits:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         curve: 1.0
        </span>
@@ -3419,28 +3426,28 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         full level:
        </span>
       </div>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         crossfade:
        </span>
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           depth: 1.0
          </span>
         </div>
        </li>
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           type: power
          </span>
@@ -3450,7 +3457,7 @@
         </div>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           control:
          </span>
@@ -3460,7 +3467,7 @@
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             type: velocity
            </span>
@@ -3470,7 +3477,7 @@
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             source: 0
            </span>
@@ -3486,14 +3493,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-samples" onclick="copyLine(event)">
      <span class="section-header level1">
       samples:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         location: Samples
        </span>
@@ -3503,7 +3510,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         include: "*"
        </span>
@@ -3513,7 +3520,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         exclude: ""
        </span>
@@ -3523,7 +3530,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         split: _
        </span>
@@ -3533,7 +3540,7 @@
       </div>
      </li>
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         pattern: [ name, note, level, roundrobin ]
        </span>
@@ -3543,7 +3550,7 @@
       </div>
      </li>
      <li class="section level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="section-header level2">
         mapping:
        </span>
@@ -3553,7 +3560,7 @@
       </div>
       <ul class="level2">
        <li class="entry level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="attribute level3">
           type: tonal
          </span>
@@ -3563,14 +3570,14 @@
         </div>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           level:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             pattern: null
            </span>
@@ -3580,7 +3587,7 @@
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             reverse: false
            </span>
@@ -3589,14 +3596,14 @@
         </ul>
        </li>
        <li class="section level3">
-        <div class="line-wrapper">
+        <div class="line-wrapper" onclick="copyLine(event)">
          <span class="section-header level3">
           note:
          </span>
         </div>
         <ul class="level3">
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             incremental start: 36
            </span>
@@ -3606,7 +3613,7 @@
           </div>
          </li>
          <li class="entry level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="attribute level4">
             incremental step: 12
            </span>
@@ -3616,7 +3623,7 @@
           </div>
          </li>
          <li class="section level4">
-          <div class="line-wrapper">
+          <div class="line-wrapper" onclick="copyLine(event)">
            <span class="section-header level4">
             detection:
            </span>
@@ -3626,7 +3633,7 @@
           </div>
           <ul class="level4">
            <li class="entry level5">
-            <div class="line-wrapper">
+            <div class="line-wrapper" onclick="copyLine(event)">
              <span class="attribute level5">
               type: list
              </span>
@@ -3636,7 +3643,7 @@
             </div>
            </li>
            <li class="entry level5">
-            <div class="line-wrapper">
+            <div class="line-wrapper" onclick="copyLine(event)">
              <span class="attribute level5">
               pattern: classic-b-sharp
              </span>
@@ -3654,14 +3661,14 @@
     </ul>
    </li>
    <li class="section level1">
-    <div class="line-wrapper">
+    <div class="line-wrapper toc-header" id="header-sounds" onclick="copyLine(event)">
      <span class="section-header level1">
       sounds:
      </span>
     </div>
     <ul class="level1">
      <li class="entry level2">
-      <div class="line-wrapper">
+      <div class="line-wrapper" onclick="copyLine(event)">
        <span class="attribute level2">
         pitch tracking: 100
        </span>
@@ -3673,5 +3680,7 @@
     </ul>
    </li>
   </ul>
+  <script src="toc.js" type="text/javascript">
+  </script>
  </body>
 </html>
