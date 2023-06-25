@@ -1,0 +1,68 @@
+= YAML-HTML Converter Todo-List
+:toc: 
+:toclevels: 100
+:toc-title:
+:sectnums:
+:sectnumlevels: 1000
+
+== How it works
+
+* Read File, store contents into memory
+* Split content into lines
+* Format content
+* Go through lines, one by one
+* Analyze line
+* Move cursor position to next line
+* Analyze line...
+* Export to HTML
+
+Using the nested objects you might easily be able to incorporate proper tag implementation
+
+. Print opening Tag
+. Print contained data
+. Print closing Tag
+
+
+
+== OOP Tree
+* Converter
+** Section
+*** Entry
+
+**Entry->Line**
+
+**Entry->Section**
+**Section->Root Section**
+
+
+
+
+== Requirements
+* Must be human-readable in YAML form
+* Table of Contents witch dynamic scrolling
+* Clipboard Button per-line
+
+
+== Features
+
+* Formatting
+** Headers
+** Bold Text
+** Cursive Text
+** Different colors
+** Class References
+** ID References
+
+** Comment Blocks
+
+=== Tag Information
+* base tag
+* default value
+* potential values
+* value type(s)
+* copy button
+
+
+=== Ideas
+
+* How bout Markdown with special characters? Something like ** \*p* ThisisTextasci * ** to reference a specific class linked to the "p" letter. Or number, dunno. But you do that you can keep things short instead of writing down class names letter by letter
