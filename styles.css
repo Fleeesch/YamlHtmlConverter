@@ -1,14 +1,20 @@
+
+
 :root {
 
     --animation-speed: 0.2s
+    -- toc-width: 18em;
 
 }
 
 body {
-    font-family: "Consolas";
+    font-family: "Calibri";
     white-space: nowrap;
     background-color: #303030;
     color: #D0D0D0;
+
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -19,7 +25,12 @@ body {
 
 .entry{
     color: #C8B8B8;
-    font-weight: normal
+    font-weight: normal;
+
+}
+
+.section > .line-wrapper{
+    background-color:#00000020;
 }
 
 .comment{
@@ -43,27 +54,21 @@ ul {
 }
 
 
-.section-header.level1 {
-
-    font-size:1.25em;
-    font-weight: normal;
-    color: #909090;
-    background:#202020;
-    display:inline-block;
-
-    padding:0.2em;
 
 
-}
 
 .line-wrapper {
 
+    display:inline-block;
     transition-duration: 0.2s;
 
     cursor: pointer;
     padding: 0.15em;
+    width: 100%;
+
 
 }
+
 
 .line-wrapper:hover {
 
@@ -71,15 +76,31 @@ ul {
 
     background-color: #FFFFFF1A;
     display:inline-block;
-    width: 100%
+    width: 100%;
 }
 
-hr {
+.section.level-0 > .line-wrapper {
 
-    margin:0;
-    margin-top:2em;
-    border: 4px solid #202020;
+    display:inline-block;
+    font-size:1.1em;
+    font-weight: normal;
+    color: #909090;
+    background:#202020;
+
+    padding:0.2em;
+
 }
+
+
+
+
+.hidden {
+
+    visibility:hidden;
+    display:none;
+
+}
+
 
 a{
   cursor: pointer;
@@ -95,11 +116,71 @@ a:hover{
 }
 
 .marked{
-
-
+    color: #FF5000;
 }
 
  .marked::after {
     content: "\2192  Clipboard";
     color: #FF5000;
   }
+
+#grid-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+ #content {
+
+    width: 100%;
+    max-width: calc(100% - var(--toc-width));
+    height:100%;
+    overflow: auto;
+
+ }
+
+ #table-of-contents{
+
+    width: var(--toc-width);
+    height:calc(100vh - 3em);
+    position: sticky;
+    top: 0;
+
+
+ }
+
+ #table-of-contents-list{
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height:100%;
+ }
+
+.attribute {
+
+}
+
+.value{
+    color: #B0B0C0;
+}
+
+
+input {
+    color: #D0D0D0;
+    font-size:0.9em;
+    padding:0.2em;
+    background-color: #202020;
+    border: none;
+    width: 90%;
+    margin-left:1em;
+
+}
+
+input:focus{
+
+    outline: none;
+
+
+}
+
+

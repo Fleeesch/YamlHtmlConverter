@@ -36,20 +36,30 @@ class Entry:
         # raw file string
         self.line: str = ""
 
+        # unique identifier
+        self.id: str = ""
+
         # section indicator
         self.is_section = False
 
         self.line_no_comment: str = ""
         self.comment_inline: str = ""
 
+        self.line_value: str = ""
+        self.line_no_value: str = ""
+
         # yaml comment flags
         self.is_empty: bool = False
         self.is_full_line_comment: bool = False
         self.has_comment: bool = False
         self.has_inline_comment: bool = False
+        self.has_value: bool = False
 
         # reference to potential parent section
         self.parent_section: Section | None = None
+
+        # 1st level entry flag
+        self.is_root_entry: bool = False
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     #   Method : Detect Empty Line
@@ -84,6 +94,9 @@ class Entry:
     def set_level(self, level: int):
         self.level = level
 
+        # raise flag in case entry is on root level
+        self.is_root_entry = (self.level <= 0)
+
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     #   Method : Set Line
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -93,6 +106,7 @@ class Entry:
         # store line
         self.line = line
         self.line_no_comment = line.strip()
+        self.line_no_value = self.line_no_comment
 
         # detect line attributes
         self.detect_empty_line()
@@ -108,6 +122,13 @@ class Entry:
         # filter full line comment
         if self.is_full_line_comment:
             self.line_no_comment = self.line[1:].strip()
+
+        # store line separated from value
+        try:
+            self.line_no_value = self.line_no_comment.split(":")[0]
+            self.line_value = self.line_no_comment.split(":")[1]
+        except:
+            pass
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     #   Method : Set Parent Section
@@ -125,22 +146,11 @@ class Entry:
         pass
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-    #   Method : Is Header
+    #   Method : set ID
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-    def is_header(self):
-
-        return isinstance(self.Section)
-
-    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-    #   Method : Is Root Header
-    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-    def is_root_header(self):
-
-        from YamlHtmlConverter.converter.structure.class_entry_section import Section
-
-        return self.level <= 0 and isinstance(self, Section)
+    def set_id(self, id):
+        self.id = id
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     #   Method : Get HTML Section
@@ -155,43 +165,49 @@ class Entry:
 
     def get_html_line(self) -> str:
 
+        # return line
         line = ""
 
-        tag_id = ''
-        tag_class = ''
+        # create and store individual id
+        id_str = f'{self.line_no_comment.replace(":", "").strip()}'
+        id_str = id_str.replace(" ", "")
+        self.set_id(id_str)
 
-        # additional tags for root headers
-        if self.is_section and self.level <= 0:
-            header_name = f'header-{self.line_no_comment.replace(":", "").strip()}'
+        # line-wrapping div container
+        line += f'<div ' \
+                f'onclick="copyLine(event)" ' \
+                f'class="{lookup.html_class_line_wrapper} {lookup.html_class_level}-{self.level}" '
 
-            self.structure.add_header(header_name
-                                      )
-            tag_id = f'id="{header_name}"'
-            tag_class = 'toc-header'
-
-        # line wrapper
-        line += f'<div onclick="copyLine(event)" class="{lookup.html_class_line_wrapper} {tag_class}" {tag_id}>'
+        # add id for root entries, just close tag if not
+        if self.is_root_entry:
+            line += f'id="{id_str}">'
+        else:
+            line += f'>'
 
         # entry is a section header
         if self.is_section:
 
             line += f'<span class="' \
-                    f'{lookup.html_class_header} ' \
-                    f'{lookup.html_class_level}{self.level + 1}' \
-                    f'">' \
+                    f'{lookup.html_class_section} ' \
+                    f'{lookup.html_class_attribute}">' \
                     f'{self.line_no_comment}' \
                     f'</span>'
 
         # entry is a conventional line
         else:
+
             line += f'<span class="' \
                     f'{lookup.html_class_attribute} ' \
-                    f'{lookup.html_class_level}{self.level + 1}' \
                     f'">' \
-                    f'{self.line_no_comment}' \
+                    f'{self.line_no_value}:' \
+                    f'</span>' \
+                    f'<span class="' \
+                    f'{lookup.html_class_value} ' \
+                    f'">' \
+                    f'{self.line_value}' \
                     f'</span>'
 
-        # entry has an inline comment
+        # optional inline comment
         if self.has_inline_comment:
             line += " "
 

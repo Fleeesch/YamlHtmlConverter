@@ -20,6 +20,7 @@ from bs4 import BeautifulSoup
 
 from . import FileHandler
 from . import Structure
+from .lookup import lookup
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -75,9 +76,6 @@ class Converter():
 
     def create_html(self):
 
-        # get html data of structure
-        html_structure = self.structure.get_data().get_html_section()
-
         # header start
         html_header = f"""
                         <!DOCTYPE html>
@@ -91,10 +89,17 @@ class Converter():
 
         toc = f"""
                 <div id="table-of-contents">
-                <h2>Table of Contents</h2>
-                <ul id="toc-list"></ul>
+                <input type="text" id="input-filter" onkeyup="filterInput()" placeholder="Filter...">
+                <ul id="table-of-contents-list"></ul>
                 </div>
                 """
+
+        # get html data of structure
+        html_structure = f"""
+                        <div id={lookup.html_class_content}>
+                        {self.structure.get_data().get_html_section()}
+                        </div>
+                        """
 
         # header end
         html_end = f"""
@@ -106,8 +111,14 @@ class Converter():
         # concatenate html output string
         html_print = ""
         html_print += textwrap.dedent(html_header).strip() + "\n"
-        html_print += textwrap.dedent(toc).strip() + "\n"
+
+        html_print += f'<div id="{lookup.html_class_grid_wrapper}">'
+
         html_print += html_structure + "\n"
+        html_print += textwrap.dedent(toc).strip() + "\n"
+
+        html_print += f'</div>'
+
         html_print += textwrap.dedent(html_end).strip() + "\n"
 
         # auto-format html document

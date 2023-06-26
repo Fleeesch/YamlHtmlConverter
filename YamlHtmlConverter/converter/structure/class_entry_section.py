@@ -12,6 +12,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 from .class_entry import Entry
+from .class_entry_comment_block import CommentBlock
 from ..lookup import lookup
 
 
@@ -96,15 +97,27 @@ class Section(Entry):
 
     def get_html_section(self) -> str:
 
+        comment_block_make: bool = False
+        comment_block: CommentBlock | None = None
+
         # start with blank return string
         return_string: str = ""
 
         return_string += f'<ul class="' \
-                         f'{lookup.html_class_level}{self.level + 1}">' \
+                         f'{lookup.html_class_level}{self.level}">' \
                          f'\n'
 
         # go through entries
         for entry in self.entries:
+
+            if entry.is_full_line_comment and entry.line_no_comment == "#--":
+                comment_block_make = not comment_block_make
+            # TODO: You need to move this to another section (before HTML)
+            if comment_block_make:
+                if comment_block:
+                    comment_block.add_comment(entry.line_no_comment)
+                else:
+                    comment_block = CommentBlock(self.structure)
 
             # skip full line comments
             if entry.is_full_line_comment:
@@ -115,15 +128,14 @@ class Section(Entry):
 
                 return_string += f'<li class="' \
                                  f'{lookup.html_class_section} ' \
-                                 f'{lookup.html_class_level}{entry.level + 1}' \
+                                 f'{lookup.html_class_level}-{entry.level}' \
                                  f'">'
 
             else:
                 return_string += f'<li class="' \
                                  f'{lookup.html_class_entry} ' \
-                                 f'{lookup.html_class_level}{entry.level + 1}' \
+                                 f'{lookup.html_class_level}-{entry.level}' \
                                  f'">'
-
 
             # get line
             return_string += entry.get_html_line()

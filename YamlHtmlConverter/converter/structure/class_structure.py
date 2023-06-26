@@ -49,6 +49,9 @@ class Structure:
         # start constructing the html file
         self.create_structure_from_file(self.root_section)
 
+        # collect headers
+        self.collect_headers()
+
         # format entries
         self.root_section.format_entries()
 
@@ -190,10 +193,11 @@ class Structure:
         return self.root_section
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-    #   Method : Add Header
+    #   Method : Collect Headers
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-    def add_header(self, header) -> str:
-        self.headers.append(header)
+    def collect_headers(self):
 
-        return header
+        # go through root entries, collect headers
+        for section in self.root_section.entries:
+            self.headers.append(section.id)
