@@ -17,6 +17,15 @@ body {
     margin: 0;
 }
 
+pre{
+padding:0;
+margin:0;
+}
+
+.comment.comment-block pre{
+
+
+}
 
 .section{
     font-weight: bold;
@@ -33,9 +42,10 @@ body {
     background-color:#00000020;
 }
 
+
 .comment{
 
-    color: #C0A000
+    color: #C0A000A0
 
 }
 
@@ -52,9 +62,6 @@ ul {
     font-weight: normal;
 
 }
-
-
-
 
 
 .line-wrapper {
@@ -92,13 +99,9 @@ ul {
 }
 
 
-
-
 .hidden {
-
     visibility:hidden;
     display:none;
-
 }
 
 
@@ -116,52 +119,66 @@ a:hover{
 }
 
 .marked{
+    transition-duration: var(--animation-speed);
     color: #FF5000;
+    margin-left:-0.8em;
 }
 
- .marked::after {
-    content: "\2192  Clipboard";
+.marked::before {
+    content: "\2665";
     color: #FF5000;
-  }
+}
 
 #grid-wrapper{
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+    grid-template-rows: auto 1fr; /* Top bar height will be auto, the rest will take up remaining space */
+    grid-template-columns: 15em 1fr; /* Sidebar width will be 200px, the rest will take up remaining space */
+    grid-template-areas:
+        "top-bar top-bar"
+        "sidebar content";
+    height: 100vh; /* Adjust the height to fit your needs */
 }
 
-
-
- #content {
-
-    width: 100%;
-    max-width: calc(100% - var(--toc-width));
-    height:100%;
-    overflow: auto;
-
- }
+#settings-bar{
+    grid-area: top-bar;
+    background-color: #262626;
+    padding: 10px;
+}
 
  #table-of-contents{
-
-    width: var(--toc-width);
-    height:calc(100vh - 3em);
-    position: sticky;
-    top: 0;
-
+ grid-area: sidebar;
+ background-color: #262626;
+    padding: 0.2em;
+    padding-right: 1.4em;
+    overflow-y: auto;
+    overflow-x: hidden;
 
  }
 
  #table-of-contents-list{
-    overflow-y: auto;
-    overflow-x: hidden;
+
     max-height:100%;
  }
+
+ #content {
+ grid-area: content;
+    padding: 10px;
+    overflow: auto;
+ }
+
 
 .attribute {
 
 }
 
+
 .value{
     color: #B0B0C0;
+}
+
+.marked *{
+    transition-duration: var(--animation-speed);
+    color: #F04000;
 }
 
 
@@ -169,18 +186,26 @@ input {
     color: #D0D0D0;
     font-size:0.9em;
     padding:0.2em;
-    background-color: #202020;
+    background-color: #181818;
     border: none;
-    width: 90%;
+    width: 20em;
     margin-left:1em;
-
 }
 
 input:focus{
-
     outline: none;
-
-
 }
 
+
+.string-type{
+    color: green;
+}
+
+.string-format{
+    color: cyan;
+}
+
+.string-appendix{
+    background: green
+}
 

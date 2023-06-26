@@ -12,6 +12,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 from ..lookup import lookup
+import re
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -119,14 +120,11 @@ class Entry:
             self.comment_inline = line_parts[-1].strip()
             self.line_no_comment = self.line[:-(len(line_parts[-1]) + 2)]
 
-        # filter full line comment
-        if self.is_full_line_comment:
-            self.line_no_comment = self.line[1:].strip()
-
         # store line separated from value
         try:
-            self.line_no_value = self.line_no_comment.split(":")[0]
-            self.line_value = self.line_no_comment.split(":")[1]
+            split_lines = self.line_no_comment.split(":")
+            self.line_no_value = split_lines[0]
+            self.line_value = split_lines[1]
         except:
             pass
 
@@ -138,19 +136,22 @@ class Entry:
         self.parent_section = section
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-    #   Method : Format
-    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-    def format(self):
-
-        pass
-
-    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     #   Method : set ID
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
     def set_id(self, id):
         self.id = id
+
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    #   Method : Format
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+    def format(self):
+
+        from ... import Converter
+
+        if self.has_inline_comment:
+            self.comment_inline = Converter.apply_markdown(self.comment_inline)
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     #   Method : Get HTML Section

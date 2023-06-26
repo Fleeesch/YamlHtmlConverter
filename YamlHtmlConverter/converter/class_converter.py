@@ -21,6 +21,7 @@ from bs4 import BeautifulSoup
 from . import FileHandler
 from . import Structure
 from .lookup import lookup
+import re
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -30,6 +31,9 @@ from .lookup import lookup
 
 class Converter():
 
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    #   Static Method : Create
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     @staticmethod
     def create(file):
 
@@ -46,6 +50,23 @@ class Converter():
 
         # create a converter, return its instance
         return Converter(file)
+
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    #   Static Method : Apply Markdown
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+    @staticmethod
+    def apply_markdown(line: str) -> str:
+
+        regex_type = r'\*{1}(.*?)\*{1}'
+        regex_format = r'\*{2}(.*?)\*{2}'
+        regex_appendix = r'\+\+(.*?)$'
+
+        line = re.sub(regex_appendix, r'<span class="string-appendix">\1</span>', line)
+        line = re.sub(regex_format, r'<span class="string-format">\1</span>', line)
+        line = re.sub(regex_type, r'<span class="string-type">\1</span>', line)
+
+        return line
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     #   Constructor
@@ -87,9 +108,15 @@ class Converter():
                         <body>
                         """
 
-        toc = f"""
+        topbar = f"""
+                    <div id="settings-bar">
+                    <input type="text" id="input-filter" onkeyup="filterInput()" placeholder="Filter...">
+                    <input type="checkbox" id="check-sidepanel" onchange="checkSidepanel(event)">
+                    </div>
+                    """
+
+        sidebar = f"""
                 <div id="table-of-contents">
-                <input type="text" id="input-filter" onkeyup="filterInput()" placeholder="Filter...">
                 <ul id="table-of-contents-list"></ul>
                 </div>
                 """
@@ -114,8 +141,10 @@ class Converter():
 
         html_print += f'<div id="{lookup.html_class_grid_wrapper}">'
 
+        html_print += textwrap.dedent(topbar).strip() + "\n"
         html_print += html_structure + "\n"
-        html_print += textwrap.dedent(toc).strip() + "\n"
+        html_print += textwrap.dedent(sidebar).strip() + "\n"
+
 
         html_print += f'</div>'
 

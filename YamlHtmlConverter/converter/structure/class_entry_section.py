@@ -49,13 +49,22 @@ class Section(Entry):
         self.entries.append(entry)
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    #   Method : Format
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+    def format(self):
+
+        from ... import Converter
+
+        super().format()
+
+        self.format_entries()
+
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     #   Method : Format Entries
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
     def format_entries(self):
-
-        # format itself
-        self.format()
 
         # format entries
         for entry in self.entries:
@@ -110,19 +119,6 @@ class Section(Entry):
         # go through entries
         for entry in self.entries:
 
-            if entry.is_full_line_comment and entry.line_no_comment == "#--":
-                comment_block_make = not comment_block_make
-            # TODO: You need to move this to another section (before HTML)
-            if comment_block_make:
-                if comment_block:
-                    comment_block.add_comment(entry.line_no_comment)
-                else:
-                    comment_block = CommentBlock(self.structure)
-
-            # skip full line comments
-            if entry.is_full_line_comment:
-                continue
-
             # create a list entry
             if entry.is_section:
 
@@ -148,6 +144,7 @@ class Section(Entry):
 
             # bullet list closing tag
             return_string += '</li>\n'
+
 
         # closing tags
         return_string += "</ul>" + "\n"

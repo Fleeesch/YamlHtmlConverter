@@ -7,6 +7,8 @@
 # -------------------------------------------------------------------------------
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 from YamlHtmlConverter.converter.structure.class_entry import Entry
+from YamlHtmlConverter.converter.structure.class_entry_comment_block import CommentBlock
+from YamlHtmlConverter.converter.structure.class_entry_comment import Comment
 from YamlHtmlConverter.converter.structure.class_entry_section import Section
 
 
@@ -67,8 +69,18 @@ class Structure:
 
         def iterate_section(sec: Section):
 
+            # --- Function : Update BreakCount ---
+            def update_breakcount():
+
+                nonlocal break_count
+
+                if entry_next.level < entry_current.level:
+                    break_count = abs(entry_current.level - entry_next.level)
+
+            # ---
+
             # keep track of index
-            nonlocal entry_index, break_count
+            nonlocal entry_index, break_count, comment_block_make, comment_block
 
             # go on until break
             while entry_index < len(self.entries):
@@ -80,6 +92,40 @@ class Structure:
                 # store current entry and next neighbours, based on current index
                 entry_current = self.entries[min(max(entry_index, 0), len(self.entries) - 1)]
                 entry_next = self.entries[min(entry_index + 1, len(self.entries) - 1)]
+
+                # > > > > > > > > > > > > > > > > > > > >
+                #   Comment Block Detection
+
+                if entry_current.is_full_line_comment and "#--" in entry_current.line_no_comment:
+
+                    comment_block_make = not comment_block_make
+
+                    if comment_block_make:
+                        idx_before_block_comment = entry_index
+                        comment_block = CommentBlock(self)
+                        sec.add_entry(comment_block)
+
+                    # increment index
+                    entry_index += 1
+                    update_breakcount()
+                    continue
+
+                if comment_block_make:
+                    comment_new = Comment(self, comment_block)
+                    comment_new.set_line(entry_current.line)
+
+                    comment_block.add_comment(comment_new)
+
+                    # increment index
+                    entry_index += 1
+                    update_breakcount()
+                    continue
+
+                elif entry_current.is_full_line_comment:
+                    # increment index
+                    entry_index += 1
+                    update_breakcount()
+                    continue
 
                 # > > > > > > > > > > > > > > > > > > > >
                 #   Start of new Section
@@ -119,14 +165,17 @@ class Structure:
                     sec.add_entry(entry_new)
 
                 # stop while loop on last section entry
-                if entry_next.level < entry_current.level:
-                    break_count = abs(entry_current.level - entry_next.level)
+                update_breakcount()
 
         # reset entry iterating index
         entry_index: int = 0
 
         # recursion break counter
         break_count: int = 0
+
+        # make comment block
+        comment_block: CommentBlock | None = None
+        comment_block_make: bool = False
 
         # iterate through entries as long as entries are available
         while entry_index < len(self.entries):

@@ -4,10 +4,14 @@
   <title>
    Test
   </title>
-  <link href="styles.css?v=20230626152134952913" rel="stylesheet"/>
+  <link href="styles.css?v=20230626231217912227" rel="stylesheet"/>
  </head>
  <body>
   <div id="grid-wrapper">
+   <div id="settings-bar">
+    <input id="input-filter" onkeyup="filterInput()" placeholder="Filter..." type="text"/>
+    <input id="check-sidepanel" type="checkbox"/>
+   </div>
    <div id="content">
     <ul class="level0">
      <li class="section level-0">
@@ -17,6 +21,12 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">Hard coded templates required for default settings.</pre>
+         <pre class="comment">This section is extended with custom templates and shall not be overwritten.</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -26,6 +36,15 @@
          </span>
         </div>
        </li>
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">String entries that can be dynamically replaced in yaml</pre>
+         <pre class="comment">by using &amp;PlaceholderName, as a literal placeholder for its value.</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">Placeholders are applied before any mapping happens to the</pre>
+         <pre class="comment">raw text contents of a yaml.</pre>
+        </div>
+       </li>
        <li class="section level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="section attribute">
@@ -33,6 +52,15 @@
          </span>
         </div>
         <ul class="level1">
+         <li class="entry level-0">
+          <div class="comment comment-block">
+           <pre class="comment"># Snippets are pre-made dicts that can be inserted in a SFZ structure.</pre>
+           <pre class="comment"># When calling a snippet via list, the first entries is the snippet name,</pre>
+           <pre class="comment"># the following entries act as replacement arguments represented by an $[N] syntax.</pre>
+           <pre class="comment">#</pre>
+           <pre class="comment"># Snippets are loaded during the mapping process.</pre>
+          </div>
+         </li>
          <li class="section level-2">
           <div class="line-wrapper level-2" onclick="copyLine(event)">
            <span class="section attribute">
@@ -153,6 +181,11 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">Global SFZ file information, shared accross all SFZ files created for an instrument.</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -173,6 +206,11 @@
          </span>
         </div>
         <ul class="level1">
+         <li class="entry level-0">
+          <div class="comment comment-block">
+           <pre class="comment"># comment <span class="string-format">[characters]</span></pre>
+          </div>
+         </li>
          <li class="entry level-2">
           <div class="line-wrapper level-2" onclick="copyLine(event)">
            <span class="attribute">
@@ -288,6 +326,33 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">Every Instrument represents a single SFZ file that shares</pre>
+         <pre class="comment">its attributes with all containing elements.</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">[!] Name of element:</pre>
+         <pre class="comment">    The name for the instrument architectual element</pre>
+         <pre class="comment">    is also used as the second part of the SFZ file.</pre>
+         <pre class="comment">    Using an instrument name that contains a "$" character</pre>
+         <pre class="comment">    will ignore this and instead use the direct name from "sfz: name"</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">sfz: [h]</pre>
+         <pre class="comment">  instruments:</pre>
+         <pre class="comment">    [Instrument Name]:</pre>
+         <pre class="comment">      [lookup information]: &lt;-- this section</pre>
+         <pre class="comment">      parts:</pre>
+         <pre class="comment">        [Part name]:</pre>
+         <pre class="comment">          [part data]:</pre>
+         <pre class="comment">          ...</pre>
+        </div>
+       </li>
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">copy: [h]</pre>
+         <pre class="comment">  Copies YAML data from another instrument or sequentially other parts if a list is given</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -296,7 +361,16 @@
          <span class="value">
          </span>
          <span class="comment comment-inline">
-          copies YAML data from instrument(s) [ins] | [ins, ins]
+          copies YAML data from instrument(s)
+          <span class="string-appendix">
+           <span class="string-type">
+            [ins]
+           </span>
+           |
+           <span class="string-format">
+            [ins, ins]
+           </span>
+          </span>
          </span>
         </div>
        </li>
@@ -434,6 +508,11 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">include can be pre- or post-generated text</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -467,6 +546,11 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">insert can be pre- or post-generated text</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -475,7 +559,13 @@
          <span class="value">
          </span>
          <span class="comment comment-inline">
-          string | [string, string]
+          <span class="string-type">
+           string
+          </span>
+          |
+          <span class="string-format">
+           [string, string]
+          </span>
          </span>
         </div>
        </li>
@@ -487,7 +577,13 @@
          <span class="value">
          </span>
          <span class="comment comment-inline">
-          string | [string, string]
+          <span class="string-type">
+           string
+          </span>
+          |
+          <span class="string-format">
+           [string, string]
+          </span>
          </span>
         </div>
        </li>
@@ -1431,6 +1527,11 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">embedded equalizers</pre>
+        </div>
+       </li>
        <li class="section level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="section attribute">
@@ -1523,6 +1624,17 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">Instrument Parts load already setup equalizers via lookup,</pre>
+         <pre class="comment">modulation of attributes can be applied only here</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">equalizer: [h]</pre>
+         <pre class="comment">  [equalizer name]:</pre>
+         <pre class="comment">    modulation:</pre>
+         <pre class="comment">      ...</pre>
+        </div>
+       </li>
        <li class="section level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="section attribute">
@@ -1776,6 +1888,11 @@
          </span>
         </div>
         <ul class="level1">
+         <li class="entry level-0">
+          <div class="comment comment-block">
+           <pre class="comment"># attributes...</pre>
+          </div>
+         </li>
          <li class="entry level-2">
           <div class="line-wrapper level-2" onclick="copyLine(event)">
            <span class="attribute">
@@ -1817,6 +1934,20 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">available filter types:</pre>
+         <pre class="comment">lowpass, highpass, bandpass,</pre>
+         <pre class="comment">notch, allpass, comb, pink</pre>
+         <pre class="comment">low-shelf, high-shelf, eq</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">available poles: [h]</pre>
+         <pre class="comment">    lowpass: 1,2,4,6</pre>
+         <pre class="comment">    highpass: 1,2,4,6 (1 seems to be ignored from ARIA)</pre>
+         <pre class="comment">    bandpass: 1,2</pre>
+         <pre class="comment">    allpass: 1</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -1924,6 +2055,17 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">filter element of part</pre>
+         <pre class="comment">used for modulating its attributes</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">filters: [h]</pre>
+         <pre class="comment">  [filter name]:</pre>
+         <pre class="comment">    modulation:</pre>
+         <pre class="comment">      ...</pre>
+        </div>
+       </li>
        <li class="section level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="section attribute">
@@ -2131,6 +2273,11 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">Release Envelopes are triggered byn release samples</pre>
+        </div>
+       </li>
        <li class="section level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="section attribute">
@@ -2185,6 +2332,13 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">Release Envelope for element, used like that:</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">release envelope: [name of release envelope] [string]</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -2203,6 +2357,36 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">universal modulation element,</pre>
+         <pre class="comment">used for almost every standard Modulation</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">Has a compensation factor that offsets the</pre>
+         <pre class="comment">source attribute value in order to achieve</pre>
+         <pre class="comment">a neutral value when modulation has its maximum value</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">Example: [h]</pre>
+         <pre class="comment">  1. Default volume value is set to 1, giving you volume=1</pre>
+         <pre class="comment">  2. Volume can be modulated via CC1 with a depth of 10, giving you volume_oncc1=10</pre>
+         <pre class="comment">  3. Final output is...</pre>
+         <pre class="comment">      volume= -9</pre>
+         <pre class="comment">      volume_oncc1=10</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">  When CC1 is set to its maximum value, volume is at its neutral value.</pre>
+         <pre class="comment">  Compensate can be used as a factor, a compensation of 0.5 would lead in this</pre>
+         <pre class="comment">  example to...</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">      volume=-3.5</pre>
+         <pre class="comment">      volume_oncc1=10</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">  Envelopes and LFOs: [h]</pre>
+         <pre class="comment">  Can use the direct values for modulation,</pre>
+         <pre class="comment">  but also have the "cc" section for individual</pre>
+         <pre class="comment">  modulator configurations</pre>
+         <pre class="comment"></pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -2282,6 +2466,12 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">Envelope Section of an Attribute modulation</pre>
+         <pre class="comment">within a Part</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -2319,6 +2509,29 @@
          </span>
         </div>
        </li>
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">for modulating envelope points, declared in the</pre>
+         <pre class="comment">envelopes lookup section</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">envelopes: [h]</pre>
+         <pre class="comment">  [name of envelope]:</pre>
+         <pre class="comment">    modulation:</pre>
+         <pre class="comment">      cc:</pre>
+         <pre class="comment">        [name of control]:</pre>
+         <pre class="comment">          points:</pre>
+         <pre class="comment">            - [time, level]</pre>
+         <pre class="comment">            - [time, level]</pre>
+         <pre class="comment">            [h] Alternatively....</pre>
+         <pre class="comment">            - [time, curve, level, curve]</pre>
+         <pre class="comment">            - [time, curve, level, curve]</pre>
+         <pre class="comment">            - ...</pre>
+         <pre class="comment">      variables:</pre>
+         <pre class="comment">      ...</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">All modulation is [double]</pre>
+        </div>
+       </li>
       </ul>
      </li>
      <li class="section level-0">
@@ -2328,6 +2541,15 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">unique modulation element,</pre>
+         <pre class="comment">right now there's no difference between an</pre>
+         <pre class="comment">ordinary modulation elemet</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">[!]might be scrapped in the future</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -2441,6 +2663,11 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">pitchbend settings for section</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -2489,6 +2716,22 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">variables lookup section,</pre>
+         <pre class="comment">stores control that modulate a variable, curves supported</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">variables: [h]</pre>
+         <pre class="comment">  [variable name]:</pre>
+         <pre class="comment">    modulation:</pre>
+         <pre class="comment">      cc:</pre>
+         <pre class="comment">        [name of control]:</pre>
+         <pre class="comment">          depth:</pre>
+         <pre class="comment">          curve:</pre>
+         <pre class="comment">          smooth</pre>
+         <pre class="comment">        ...</pre>
+        </div>
+       </li>
        <li class="section level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="section attribute">
@@ -2516,6 +2759,22 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">default amplitude EG values, used for</pre>
+         <pre class="comment">every amplitude implementation</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">amp eg: [h]</pre>
+         <pre class="comment">  [amp eg attribute]:</pre>
+         <pre class="comment">    level:</pre>
+         <pre class="comment">    shape:</pre>
+         <pre class="comment">    modulation:</pre>
+         <pre class="comment">      cc:</pre>
+         <pre class="comment">        [Control]:</pre>
+         <pre class="comment">          depth:</pre>
+         <pre class="comment">      ....</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -3380,6 +3639,18 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">Envelope lookup definition</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">Sustain point is automatically calculated</pre>
+         <pre class="comment">if no value is given</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">The "curve" tag within the point map</pre>
+         <pre class="comment">can be used to apply a custom curve</pre>
+         <pre class="comment">to the envelope segment</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -3450,6 +3721,15 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">If the exponent is defined the curve will be interpolated</pre>
+         <pre class="comment">for the defined section.</pre>
+         <pre class="comment">By picking a resolution value between 0 - 1 the amount of points</pre>
+         <pre class="comment">can be reduced.</pre>
+         <pre class="comment">Setting resolution to 0.5 will result in half the amount of points</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -3497,6 +3777,21 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">Group Choke section of a part</pre>
+         <pre class="comment">Groups are created on the fly when a name is given</pre>
+         <pre class="comment">and used universally accross the instrument</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">The creation of Choke Groups always leadds to phantom zones</pre>
+         <pre class="comment">that act as choke agents for samples. It's a hack that</pre>
+         <pre class="comment">allows authentic Choke Groups with crossfaded samples.</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">Polymono:[h]</pre>
+         <pre class="comment">Bypasses the "group" and "off by" settings and creates</pre>
+         <pre class="comment">per note mono-groups</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -3580,6 +3875,24 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">default attribute element.</pre>
+         <pre class="comment">attributes are elements that carry a float point value which can be modulated</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">-&gt; see modulation element for more information</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">all modulation elements merge / extend their data with</pre>
+         <pre class="comment">the data available from the modulation element</pre>
+        </div>
+       </li>
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">compensation [h]</pre>
+         <pre class="comment">  - sum: sum of all compensations</pre>
+         <pre class="comment">  - average: average of all compensation</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -3665,6 +3978,11 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">Range Element cover the whole range by default</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -3700,6 +4018,12 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">keyswitch element, used for triggering a</pre>
+         <pre class="comment">part via key section</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -3734,6 +4058,59 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">trigger: [h]</pre>
+         <pre class="comment">  normal - always trigger note</pre>
+         <pre class="comment">  release - trigger note on release (requires previous active voice on ARIA)</pre>
+         <pre class="comment">  first - trigger only if no voice is active</pre>
+         <pre class="comment">  second - legato trigger, activate if at least one voice is active</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">playmode: [h]</pre>
+         <pre class="comment">  normal - straight playing of sample</pre>
+         <pre class="comment">  shot - one shot trigger, play full sample</pre>
+         <pre class="comment">  loop all - loop sample all the time if loop points are available</pre>
+         <pre class="comment">  loop - loop sample, but stop looping on release</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">roundrobin: [h]</pre>
+         <pre class="comment">  sequence - play roundrobins in a linear sequence</pre>
+         <pre class="comment">  random - play roundrobins through randomization</pre>
+         <pre class="comment">  hybrid - split roundorbins into two sections that use randomized samples</pre>
+         <pre class="comment">  !!! hybrid seems to be broken, so avoid that one for now</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">include: [h]</pre>
+         <pre class="comment">  Can be single items or lists.</pre>
+         <pre class="comment">  The content of a file can be inserted pre- or post automaticially generated sfz content</pre>
+         <pre class="comment">  of the current sfz structure element, see section for specific information</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">insert: [h]</pre>
+         <pre class="comment">  Insert written text pre- or post the automatically generated sfz content.</pre>
+         <pre class="comment">  [!] References to the local SFZ structure element can be made using brackets:</pre>
+         <pre class="comment">  {envelopes:EnvelopeName}          -&gt;  Envelope SFZ tag</pre>
+         <pre class="comment">  {curves:CurveName}                -&gt;  Curve Index Number</pre>
+         <pre class="comment">  {filters:FilterName}              -&gt;  Local Filter Index (nothing or "2")</pre>
+         <pre class="comment">  {lfo:LfoName}                     -&gt;  LFO SFZ tag</pre>
+         <pre class="comment">  {control:ControlName}             -&gt;  Control CC number</pre>
+         <pre class="comment">  {keyswitches:KeyswitchName}       -&gt;  Low Keyswitch Range</pre>
+         <pre class="comment">  {keyswitches_high:KeyswitchName}  -&gt;  High Keyswitch Range</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">keyrange: [h]</pre>
+         <pre class="comment">  "force note" removes tonal mapping and instead moves all the samples to a given note,</pre>
+         <pre class="comment">  still respecting "extend" settings</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">snippet: [h]</pre>
+         <pre class="comment">  Inserts a snippet from the template section.</pre>
+         <pre class="comment">  Can be a single word or a list, where the first entry is the snippet name and</pre>
+         <pre class="comment">  The following entries are values for placeholder wildcards defined in the snippets using $1, $2, ...</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">copy: [h]</pre>
+         <pre class="comment">  Copies YAML data from another part or sequentially from other parts if a list is given</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">force note: [h]</pre>
+         <pre class="comment">  Ignores tonal mapping and forces the note range of all samples to a specified note.</pre>
+         <pre class="comment">  Can be a list in order to force a range.</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -4110,6 +4487,14 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">crossfade: type: [h]</pre>
+         <pre class="comment">  type can be</pre>
+         <pre class="comment">    - "linear" for linear cross</pre>
+         <pre class="comment">    - "power" for a steeper crossfade</pre>
+        </div>
+       </li>
        <li class="section level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="section attribute">
@@ -4154,6 +4539,40 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">Splits settings of a part</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">If a split contains crossfades that are controlled with something</pre>
+         <pre class="comment">else than velocity, the level range is ignored since proper CC crossfading across the full range</pre>
+         <pre class="comment">requires all samples of a note to be played at the same time</pre>
+         <pre class="comment"></pre>
+        </div>
+       </li>
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">curve: [h]</pre>
+         <pre class="comment">  Exponent that shift the splits aroung logarithmically.</pre>
+         <pre class="comment">  The shift also affects the (optionally) already implemented crossfades.</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">    values 0 - 1: compressed high level splits and gives low level splits more room</pre>
+         <pre class="comment">    value 1: splits are spread linear</pre>
+         <pre class="comment">    values &gt; 1: compressed low level splits and gives high level splits more room</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">crossfade: control: type: [h]</pre>
+         <pre class="comment">  velocity - uses default velocity detection for crossfades</pre>
+         <pre class="comment">  aftertouch - uses channel aftertouch for crossfades</pre>
+         <pre class="comment">  cc - uses control change with given index for crossfades</pre>
+         <pre class="comment">  [control name] - uses a control from the lookup section for crossfades</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">crossfade control: source: [h]</pre>
+         <pre class="comment">  0 - 127 - Control Change number of type is cc</pre>
+         <pre class="comment">  [Control] - Control name string for picking a control via lookup</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">full level: [h]</pre>
+         <pre class="comment">  Set to true to ignore levels (keeping the crossfades)</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -4255,6 +4674,59 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">Samples settings of a part</pre>
+        </div>
+       </li>
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">  include:  [h]</pre>
+         <pre class="comment">  Allows only samples to be mapped that are recognized by the filter.</pre>
+         <pre class="comment">  Wildcard "*" is allowed. Can be a list.</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">  exclude:  [h]</pre>
+         <pre class="comment">  Skips samples that match the filter.</pre>
+         <pre class="comment">  Wildcard "*" is allowed. Can be a list.</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">  pattern:  [h]</pre>
+         <pre class="comment">  List that represents the attributes that can be read from a file.</pre>
+         <pre class="comment">  The filename is split using the "split" symbol from the settings and</pre>
+         <pre class="comment">  then scanned using the given pattern to get the attributes.</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">    name - name of the sample</pre>
+         <pre class="comment">    note - tonal data, should be single note</pre>
+         <pre class="comment">    level - level data, for level dynamic ordering</pre>
+         <pre class="comment">    roundrobin - roundrobin information, for explict roundrobin declaration</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">    [!] Any attribute that isn't listed here will act as placeholder.</pre>
+         <pre class="comment">        This allows you to skip a segment.</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">    [!] Pattern without a note attribute:</pre>
+         <pre class="comment">        Felies on the"incremental start" and "incremental step" settings</pre>
+         <pre class="comment">        in order to spread the samples automatically across the tonal range.</pre>
+         <pre class="comment">        A new zone is created everytime there is a change in the name,</pre>
+         <pre class="comment">        which is typical for drum or noise samples.</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">mapping: type: [h]</pre>
+         <pre class="comment">  tonal - map the sample tonally</pre>
+         <pre class="comment">  atonal - map the sample atonally, using the note information given</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">mapping: type: note: [h]</pre>
+         <pre class="comment">  step - semitone to increment between notes</pre>
+         <pre class="comment">  start - starting note for atonal mapping</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">mapping: level: pattern: [h]</pre>
+         <pre class="comment">  list of strings used for sorting levels by word, not numbers.</pre>
+         <pre class="comment">  can be used for classical velocity notation ("mezzoforte", "pianissimo")</pre>
+         <pre class="comment"></pre>
+         <pre class="comment">mapping: note: detection: type: [h]</pre>
+         <pre class="comment">  direct - grab note directly from a given number</pre>
+         <pre class="comment">  list - use a lookup array from the templates files or a given list of note names</pre>
+         <pre class="comment">    [!] list must contain 12 note names as strings, representing the western musical scale</pre>
+         <pre class="comment">    [!] the octave is filtered from a number filtered from the file note name</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -4459,6 +4931,11 @@
        </span>
       </div>
       <ul class="level0">
+       <li class="entry level-0">
+        <div class="comment comment-block">
+         <pre class="comment">Sounds settings of a part</pre>
+        </div>
+       </li>
        <li class="entry level-1">
         <div class="line-wrapper level-1" onclick="copyLine(event)">
          <span class="attribute">
@@ -4477,7 +4954,6 @@
     </ul>
    </div>
    <div id="table-of-contents">
-    <input id="input-filter" onkeyup="filterInput()" placeholder="Filter..." type="text"/>
     <ul id="table-of-contents-list">
     </ul>
    </div>

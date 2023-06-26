@@ -85,7 +85,9 @@ sfz:
 
   # symbols for formatting
   symbols:
-    # comment haracters
+    #--
+    # comment **[characters]**
+    #--
     tab: ". . "
     line placeholder: "$l" # [string]
     comment line placeholder: "$c" # [string]
@@ -137,7 +139,7 @@ instruments:
   #   Copies YAML data from another instrument or sequentially other parts if a list is given
   #--
 
-  copy: # copies YAML data from instrument(s) [ins] | [ins, ins]
+  copy: # copies YAML data from instrument(s) ++ *[ins]* | **[ins, ins]**
   hide: false # refuse to write instrument to a SFZ file, but still collect it's data [bool]
   control:
   envelopes:
@@ -173,8 +175,8 @@ insert:
   # insert can be pre- or post-generated text
   #--
 
-  pre: # string | [string, string]
-  post: # string | [string, string]
+  pre: # *string* | **[string, string]**
+  post: # *string* | **[string, string]**
 
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 # Control Section

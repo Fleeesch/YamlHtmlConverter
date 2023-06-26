@@ -31,7 +31,8 @@ items.forEach(function (item) {
 
 });
 
-
+// always filter input on start
+filterInput()
 
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -v

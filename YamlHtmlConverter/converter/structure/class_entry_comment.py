@@ -12,6 +12,7 @@ from .class_entry import Entry
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 from ..lookup import lookup
+import re
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -30,3 +31,14 @@ class Comment(Entry):
         super().__init__(structure)
 
         comment_block: CommentBlock | None = comment_block
+
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    #   Method : Set Line
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+    def set_line(self, line: str = ""):
+        from ... import Converter
+
+        super().set_line(line)
+
+        self.line = Converter.apply_markdown(self.line)

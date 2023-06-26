@@ -34,6 +34,25 @@ class CommentBlock(Entry):
     #   Method : Add Comment
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-    def add_comment(self, line):
+    def add_comment(self, comment: Comment):
+        self.comments.append(comment)
 
-        self.comments.append(Comment(line, self))
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    #   Method : Get  HTML Line
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+    def get_html_line(self) -> str:
+
+        line = '<div class="comment comment-block">'
+
+        trim = (self.level + 1) * 2 + 2
+
+        for comment in self.comments:
+
+            comment_str = comment.line[trim:]
+
+            line += f'<pre class="comment">{comment_str}</pre>\n'
+
+        line += '</div>'
+
+        return line
