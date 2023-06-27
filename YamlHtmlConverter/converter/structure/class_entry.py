@@ -37,6 +37,9 @@ class Entry:
         # raw file string
         self.line: str = ""
 
+        # id appendix for unique identification
+        self.id_appendix: str = ""
+
         # unique identifier
         self.id: str = ""
 
@@ -55,12 +58,20 @@ class Entry:
         self.has_comment: bool = False
         self.has_inline_comment: bool = False
         self.has_value: bool = False
+        self.is_file_reference: bool = False
 
         # reference to potential parent section
         self.parent_section: Section | None = None
 
         # 1st level entry flag
         self.is_root_entry: bool = False
+
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    #   Method : Set ID Appendix
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+    def set_id_appendix(self, val: str = ""):
+        self.id_appendix = val
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     #   Method : Detect Empty Line
@@ -169,14 +180,23 @@ class Entry:
         # return line
         line = ""
 
+        # return nothing when a "blank" attribute is given
+        # if self.line_no_value.lower() == "blank":
+        #    return ""
+
         # create and store individual id
         id_str = f'{self.line_no_comment.replace(":", "").strip()}'
         id_str = id_str.replace(" ", "")
+
+        # add optional id appendix
+        if self.id_appendix:
+            id_str += f'@{self.id_appendix}'
+
         self.set_id(id_str)
 
         # line-wrapping div container
         line += f'<div ' \
-                f'onclick="copyLine(event)" ' \
+                f'onclick="{lookup.js_method_copy}" ' \
                 f'class="{lookup.html_class_line_wrapper} {lookup.html_class_level}-{self.level}" '
 
         # add id for root entries, just close tag if not

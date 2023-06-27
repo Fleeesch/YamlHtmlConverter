@@ -6,15 +6,16 @@
 #
 # -------------------------------------------------------------------------------
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-from YamlHtmlConverter.converter.structure.class_entry import Entry
-from YamlHtmlConverter.converter.structure.class_entry_comment_block import CommentBlock
-from YamlHtmlConverter.converter.structure.class_entry_comment import Comment
-from YamlHtmlConverter.converter.structure.class_entry_section import Section
-
-
+from YamlHtmlConverter.converter import FileHandler
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Dependencies
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+from YamlHtmlConverter.converter.structure.class_entry import Entry
+from YamlHtmlConverter.converter.structure.class_entry_comment_block import CommentBlock
+from YamlHtmlConverter.converter.structure.class_entry_comment import Comment
+from YamlHtmlConverter.converter.structure.class_entry_file_reference import FileReference
+from YamlHtmlConverter.converter.structure.class_entry_section import Section
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -94,6 +95,14 @@ class Structure:
                 entry_next = self.entries[min(entry_index + 1, len(self.entries) - 1)]
 
                 # > > > > > > > > > > > > > > > > > > > >
+                #   File Reference
+
+                if entry_current.is_file_reference:
+                    sec.add_entry(entry_current)
+                    entry_index += 1
+                    continue
+
+                # > > > > > > > > > > > > > > > > > > > >
                 #   Comment Block Detection
 
                 if entry_current.is_full_line_comment and "#--" in entry_current.line_no_comment:
@@ -137,6 +146,7 @@ class Structure:
                     # transfer attributes
                     section_new.set_level(entry_current.level)
                     section_new.set_line(entry_current.line)
+                    section_new.set_id_appendix(entry_current.id_appendix)
 
                     # add new section as entry of current section
                     sec.add_entry(section_new)
@@ -157,6 +167,7 @@ class Structure:
                     # transfer attributes
                     entry_new.set_level(entry_current.level)
                     entry_new.set_line(entry_current.line)
+                    entry_new.set_id_appendix(entry_current.id_appendix)
 
                     # increment index
                     entry_index += 1
@@ -182,7 +193,19 @@ class Structure:
             iterate_section(section)
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-    #   Method : Analyze Line
+    #   Method : Add File Reference Entry
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+    def add_file_reference_entry(self, file: FileHandler):
+
+        # create reference to file
+        file_ref = FileReference(self, file)
+
+        # add to entry list
+        self.add_entry(file_ref)
+
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    #   Method : Line to Entry
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
     def line_to_entry(self, line: str) -> Entry | None:
@@ -214,18 +237,30 @@ class Structure:
 
     def collect_entries_from_file(self):
 
-        # collect entries
-        while self.file_handler.lines_available():
+        for f in self.file_handler:
 
-            # get raw line string
-            line = self.file_handler.get_line_inc()
+            if len(self.file_handler) > 1:
+                self.add_file_reference_entry(f)
 
-            # skip yaml header
-            if line.strip() == "---":
-                continue
+            # collect entries
+            while f.lines_available():
 
-            # create entry using line
-            self.line_to_entry(line)
+                # get raw line string
+                line = f.get_line_inc()
+
+                # skip yaml header
+                if line.strip() == "---":
+                    continue
+
+                # skip empty lines
+                if not line.strip():
+                    continue
+
+                # create entry using line
+                entry_new = self.line_to_entry(line)
+
+                # set id appendix for entry
+                entry_new.set_id_appendix(f.file_name)
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     #   Method : Add Entry

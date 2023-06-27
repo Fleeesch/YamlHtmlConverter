@@ -145,7 +145,6 @@ class Section(Entry):
             # bullet list closing tag
             return_string += '</li>\n'
 
-
         # closing tags
         return_string += "</ul>" + "\n"
 

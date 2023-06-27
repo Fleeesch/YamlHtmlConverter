@@ -14,27 +14,39 @@
 
 templates:
   #--
-  # Hard coded templates required for default settings.
-  # This section is extended with custom templates and shall not be overwritten.
+  # !!This is a Warning!!
+  #
+  # ??This is a hint??
+  #
+  # .h. This is a header .h.
+  #
+  # Test can be **bold**, or //italic//, or __underlined__, also --strike-through--
   #--
+
+  normal line: value # comment .t. (value) .t. | .f. [hint] .f. ++ appendix of a comment
+
 
   # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
   # Placeholder
   # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
+  
   placeholder:
-  #--
-  # String entries that can be dynamically replaced in yaml
-  # by using &PlaceholderName, as a literal placeholder for its value.
-  #
-  # Placeholders are applied before any mapping happens to the
-  # raw text contents of a yaml.
-  #--
-
+  
+    #--
+    # String entries that can be dynamically replaced in yaml
+    # by using &PlaceholderName, as a literal placeholder for its value.
+    #
+    # Placeholders are applied before any mapping happens to the
+    # raw text contents of a yaml.
+    #--
+    
+    Blank:
+      
+  
   # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
   # Snippets
   # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
+  
   snippet:
     #--
     # Snippets are pre-made dicts that can be inserted in a SFZ structure.
@@ -43,18 +55,18 @@ templates:
     #
     # Snippets are loaded during the mapping process.
     #--
-
+    
     Blank:
       This is a snippet: $1
-
+  
   # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
   # Pattern
   # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
+  
   pattern:
     # * * * * * * * * * * * * * * *
     # Level
-
+    
     level: # level patterns
       pattern a: [ "1", "2" ]
       pattern b: [ "01", "02" ]
@@ -233,7 +245,7 @@ control:
     default: 0
 
   # ::: Unlisted (SFZ2) :::
-
+  
   # Polyphonic Aftertouch
   Poly AT:
     cc: 130

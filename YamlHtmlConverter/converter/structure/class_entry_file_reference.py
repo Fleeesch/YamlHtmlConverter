@@ -1,6 +1,6 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # -------------------------------------------------------------------------------
-#   Class : Structure : Entry
+#   Class : Structure : File Reference
 #
 #   Base class of entries from a file.
 #
@@ -20,36 +20,41 @@ from .class_entry import Entry
 #   Class
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-class CommentBlock(Entry):
+class FileReference(Entry):
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     #   Constructor
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-    def __init__(self, structure):
+    def __init__(self, structure, file):
         super().__init__(structure)
 
-        self.comments: list[Comment] = []
+        from .. import FileHandler
 
-    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-    #   Method : Add Comment
-    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+        # declare itself as file reference
+        self.is_file_reference = True
 
-    def add_comment(self, comment: Comment):
-        self.comments.append(comment)
+        # store file
+        self.file: FileHandler = file
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     #   Method : Get  HTML Line
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
     def get_html_line(self) -> str:
-        line = f'<div class="{lookup.html_class_comment} {lookup.html_class_comment_block}">'
 
-        for comment in self.comments:
-            comment_str = comment.line.lstrip()[2:]
+        line = ""
 
-            line += f'<pre class="{lookup.html_class_comment}">{comment_str}</pre>\n'
+        class_first_entry = ""
 
-        line += '</div>'
+        if self.structure.file_handler[0] == self.file:
+            class_first_entry = "first-file-entry"
+
+        # line-wrapping div container
+        line += f'<div ' \
+                f'class="{lookup.html_class_line_wrapper} {lookup.html_class_level}-0" ' \
+                f'id="{self.file.file_name}{self.file.file_extension}" ' \
+                f'<span class="{lookup.html_class_file_reference} {class_first_entry}">{self.file.file_name}{self.file.file_extension}</span>' \
+                f'</div>'
 
         return line

@@ -20,6 +20,6 @@ from . import Converter
 #   Method : Load File
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-def load_file(file=""):
+def yaml_to_html(file: str | list[str], html: str = "out.html") -> Converter | None:
     # try creating a converter, return its instance
-    return Converter.create(file)
+    return Converter.create(file, html)
