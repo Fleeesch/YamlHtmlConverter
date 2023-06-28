@@ -11,39 +11,47 @@
 #   Dependencies
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-from .class_entry import Entry
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Dependencies
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 from ..lookup import lookup
-import re
+from .class_entry_comment import Comment
+from .class_entry_comment_block import CommentBlock
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Class
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-class Comment(Entry):
+class ExampleBlock(CommentBlock):
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     #   Constructor
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-    def __init__(self, structure, comment_block=None):
-        from .class_entry_comment_block import CommentBlock
-
+    def __init__(self, structure):
         super().__init__(structure)
 
-        comment_block: CommentBlock | None = comment_block
+        self.comments: list[Comment] = []
 
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-    #   Method : Set Line
+    #   Method : Add Comment
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-    def set_line(self, line: str = ""):
-        from ... import Converter
+    def add_comment(self, comment: Comment):
+        self.comments.append(comment)
 
-        super().set_line(line)
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    #   Method : Get  HTML Line
+    # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-        self.line = Converter.apply_markdown(self.line)
+    def get_html_line(self) -> str:
+        line = f'<div class="{lookup.html_class_comment} {lookup.html_class_example_block}">'
+
+        line += f'<div class="{lookup.html_class_example_block_header}">Example</div>'
+
+        for comment in self.comments:
+            comment_str = comment.line.lstrip()[2:]
+
+            line += f'<pre class="{lookup.html_class_comment}">{comment_str}</pre>\n'
+
+        line += '</div>'
+
+        return line
